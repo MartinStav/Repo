@@ -20,7 +20,7 @@ The program supports the following commands:
 
 # Binary Tree Implementation in C
 
-Self-balancing binary tree (AVL tree) in C. The tree stores records of `Person` with integer IDs and associated data strings. The implementation supports insertion, deletion, and searching of records.
+Self-balancing binary tree (AVL tree) in C. The tree stores records of Person with integer IDs and associated data strings. The implementation supports insertion, deletion, and searching of records.
 
 ## Features
 
