@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="index.controller.Controller">
+   <children>
+      <Pane fx:id="StartView" prefHeight="600.0" prefWidth="600.0">
+         <children>
+            <Pane onMouseClicked="#AdminView" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #274C77;">
+               <children>
+                  <Text fill="WHITE" layoutX="95.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ADMIN" textAlignment="CENTER">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane layoutX="300.0" onMouseClicked="#UserView" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Text layoutX="106.0" layoutY="313.0" strokeType="OUTSIDE" strokeWidth="0.0" text="USER" textAlignment="CENTER">
+                     <font>
+                        <Font size="36.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Pane>
+      <Pane fx:id="LoginRegisterView" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff;" visible="false">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #F0F4FA;">
+               <children>
+                  <Text layoutX="115.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="40.0" layoutY="227.0" text="Name:" />
+                  <TextField fx:id="UserLoginName" layoutX="40.0" layoutY="247.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #fff;" />
+                  <Label layoutX="39.0" layoutY="288.0" text="Password:" />
+                  <PasswordField fx:id="UserLoginPassword" layoutX="39.0" layoutY="308.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #fff;" />
+                  <Button layoutX="118.0" layoutY="363.0" mnemonicParsing="false" onAction="#UserLogin" text="SUBMIT" />
+                  <Text fx:id="notFound" layoutX="105.0" layoutY="432.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User not found!" visible="false" />
+               </children>
+            </Pane>
+            <Pane layoutX="300.0" prefHeight="600.0" prefWidth="300.0" style="-fx-background-color: #fff;">
+               <children>
+                  <Text layoutX="98.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="REGISTER">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="40.0" layoutY="227.0" text="Name:" />
+                  <TextField fx:id="UserRegisterName" layoutX="40.0" layoutY="247.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #F0F4FA;" />
+                  <Label layoutX="40.0" layoutY="287.0" text="Age:" />
+                  <TextField fx:id="UserRegisterAge" layoutX="40.0" layoutY="307.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #F0F4FA;" />
+                  <Label layoutX="40.0" layoutY="347.0" text="Password:" />
+                  <PasswordField fx:id="UserRegisterPassword" layoutX="40.0" layoutY="367.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #F0F4FA;" />
+                  <Button layoutX="119.0" layoutY="422.0" mnemonicParsing="false" onAction="#UserRegister" text="SUBMIT" />
+                  <Text fx:id="userExists" layoutX="93.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User already exists!" visible="false" />
+                  <Text fx:id="underAge" layoutX="95.0" layoutY="483.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Under 18 years old!" visible="false" />
+               </children>
+            </Pane>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackToStartView" prefHeight="42.0" prefWidth="75.0" text="Back" textAlignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children></Pane>
+      <Pane fx:id="AdminLogin" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff;" visible="false">
+         <children>
+            <Pane prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #F0F4FA;">
+               <children>
+                  <Text layoutX="265.0" layoutY="173.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LOGIN">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Text>
+                  <Label layoutX="190.0" layoutY="228.0" text="Name:" />
+                  <TextField fx:id="AdminLoginName" layoutX="190.0" layoutY="248.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #fff;" />
+                  <Label layoutX="189.0" layoutY="289.0" text="Password:" />
+                  <PasswordField fx:id="AdminLoginPassword" layoutX="189.0" layoutY="309.0" prefHeight="26.0" prefWidth="221.0" style="-fx-background-color: #fff;" />
+                  <Button layoutX="268.0" layoutY="364.0" mnemonicParsing="false" onAction="#AdminLogin" text="SUBMIT" />
+                  <Text fx:id="adminNotFound" layoutX="255.0" layoutY="435.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User not found!" visible="false" />
+               </children>
+            </Pane>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackToStartView" prefHeight="42.0" prefWidth="75.0" text="Back" textAlignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
+         </children>
+      </Pane>
+      <Pane fx:id="userSignedIn" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff;" visible="false">
+         <children>
+            <TabPane layoutY="70.0" prefHeight="474.0" prefWidth="600.0" style="-fx-background-color: #fff;" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab text="Vote candidates">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="158.0" fitWidth="205.0" layoutX="36.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/avatar1.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="158.0" fitWidth="205.0" layoutX="222.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/avatar2.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fitHeight="158.0" fitWidth="205.0" layoutX="406.0" layoutY="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/avatar3.png" />
+                                 </image>
+                              </ImageView>
+                              <RadioButton layoutX="78.0" layoutY="190.0" mnemonicParsing="false" onAction="#Select1" text="Martin">
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="userVote" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton layoutX="454.0" layoutY="190.0" mnemonicParsing="false" onAction="#Select3" text="Dani" toggleGroup="$userVote" />
+                              <RadioButton layoutX="270.0" layoutY="190.0" mnemonicParsing="false" onAction="#Select2" text="Alex" toggleGroup="$userVote" />
+                              <Button layoutX="255.0" layoutY="378.0" mnemonicParsing="false" onAction="#voteCandidate" prefHeight="51.0" prefWidth="91.0" text="Vote" />
+                              <Pane layoutX="25.0" layoutY="217.0" prefHeight="148.0" prefWidth="551.0" style="-fx-background-color: #F0F4FA;">
+                                 <children>
+                                    <Text layoutX="5.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" />
+                                 </children>
+                              </Pane>
+                              <TextArea fx:id="alexDescriptionShow" editable="false" layoutX="215.0" layoutY="235.0" prefHeight="126.0" prefWidth="171.0" />
+                              <TextArea fx:id="martinDescriptionShow" editable="false" layoutX="30.0" layoutY="236.0" prefHeight="125.0" prefWidth="171.0" />
+                              <TextArea fx:id="daniDescriptionShow" editable="false" layoutX="400.0" layoutY="235.0" prefHeight="126.0" prefWidth="171.0" />
+                           </children>
+                        </AnchorPane>
+                  </content>
+                </Tab>
+                <Tab onSelectionChanged="#showWinner" text="Winning Candidate">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="winningMartinImg" fitHeight="223.0" fitWidth="322.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@images/avatar1.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="winningAlexImg" fitHeight="224.0" fitWidth="221.0" layoutX="190.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@images/avatar2.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="winningDaniImg" fitHeight="223.0" fitWidth="248.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@images/avatar3.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="winningNoone" disable="true" layoutX="212.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOONE!">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="winningMartin" layoutX="281.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Martin" visible="false" />
+                              <Text fx:id="winningAlex" layoutX="287.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alex" visible="false" />
+                              <Text fx:id="winningDani" layoutX="287.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dani" visible="false" />
+                           </children></AnchorPane>
+                  </content>
+                </Tab>
+              </tabs>
+            </TabPane>
+            <Text layoutX="26.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voted for:" />
+            <Text fx:id="votedFor" layoutX="95.0" layoutY="571.0" strokeType="OUTSIDE" strokeWidth="0.0" text="No vote recorded yet." />
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackToStartView" prefHeight="42.0" prefWidth="75.0" text="Log Out" textAlignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="SignedIn" prefHeight="600.0" prefWidth="600.0" style="-fx-background-color: #fff;" visible="false">
+         <children>
+            <TabPane layoutY="63.0" prefHeight="538.0" prefWidth="600.0" style="-fx-background-color: #fff;" tabClosingPolicy="UNAVAILABLE">
+               <tabs>
+                  <Tab onSelectionChanged="#pieChartUpdate" text="Statistics">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <PieChart fx:id="pieChart" layoutX="50.0" layoutY="40.0" title="Vote Statistics">
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </PieChart>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Find User">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <TextField fx:id="findUserNameId" layoutX="212.0" layoutY="186.0" prefHeight="31.0" prefWidth="175.0" style="-fx-background-color: #F0F4FA;" />
+                              <Label layoutX="208.0" layoutY="137.0" text="Find User by Name or Id:">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="211.0" layoutY="283.0" mnemonicParsing="false" onAction="#FindByNameId" prefHeight="61.0" prefWidth="178.0" text="Find" />
+                              <Text fx:id="foundUserNameId" layoutX="14.0" layoutY="255.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="571.30078125">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab onSelectionChanged="#showWinner" text="Winning Candidate">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fx:id="winningMartinImg1" fitHeight="223.0" fitWidth="322.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@images/avatar1.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="winningAlexImg1" fitHeight="224.0" fitWidth="221.0" layoutX="190.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@images/avatar2.png" />
+                                 </image>
+                              </ImageView>
+                              <ImageView fx:id="winningDaniImg1" fitHeight="223.0" fitWidth="248.0" layoutX="189.0" layoutY="32.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                 <image>
+                                    <Image url="@images/avatar3.png" />
+                                 </image>
+                              </ImageView>
+                              <Text fx:id="winningNoone1" disable="true" layoutX="212.0" layoutY="226.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NOONE!">
+                                 <font>
+                                    <Font size="48.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="winningMartin1" layoutX="281.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Martin" visible="false" />
+                              <Text fx:id="winningAlex1" layoutX="287.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Alex" visible="false" />
+                              <Text fx:id="winningDani1" layoutX="287.0" layoutY="283.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Dani" visible="false" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </Tab>
+                  <Tab text="Edit Candidates">
+                     <content>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="563.0" prefWidth="600.0">
+                           <children>
+                              <TabPane prefHeight="507.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+                                <tabs>
+                                  <Tab text="Martin">
+                                    <content>
+                                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextArea fx:id="martinDescriptionChange" layoutX="34.0" layoutY="43.0" prefHeight="196.0" prefWidth="532.0" />
+                                                <Text layoutX="34.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" />
+                                                <Slider fx:id="martinPercentageChange" blockIncrement="1.0" layoutX="34.0" layoutY="277.0" majorTickUnit="10.0" minorTickCount="4" prefHeight="38.0" prefWidth="533.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
+                                                <Text layoutX="35.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vote percentage:" />
+                                                <Button layoutX="249.0" layoutY="349.0" mnemonicParsing="false" onAction="#SubmitChange" prefHeight="42.0" prefWidth="102.0" text="Submit Change" />
+                                             </children>
+                                          </AnchorPane>
+                                    </content>
+                                  </Tab>
+                                    <Tab text="Alex">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextArea fx:id="alexDescriptionChange" layoutX="34.0" layoutY="43.0" prefHeight="196.0" prefWidth="532.0" />
+                                                <Text layoutX="34.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" />
+                                                <Slider fx:id="alexPercentageChange" blockIncrement="1.0" layoutX="34.0" layoutY="277.0" majorTickUnit="10.0" minorTickCount="4" prefHeight="38.0" prefWidth="533.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
+                                                <Text layoutX="35.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vote percentage:" />
+                                                <Button layoutX="249.0" layoutY="349.0" mnemonicParsing="false" onAction="#SubmitChange" prefHeight="42.0" prefWidth="102.0" text="Submit Change" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                    <Tab text="Dani">
+                                       <content>
+                                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                             <children>
+                                                <TextArea fx:id="daniDescriptionChange" layoutX="34.0" layoutY="43.0" prefHeight="196.0" prefWidth="532.0" />
+                                                <Text layoutX="34.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" />
+                                                <Slider fx:id="daniPercentageChange" blockIncrement="1.0" layoutX="34.0" layoutY="277.0" majorTickUnit="10.0" minorTickCount="4" prefHeight="38.0" prefWidth="533.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="100.0" />
+                                                <Text layoutX="35.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vote percentage:" />
+                                                <Button layoutX="249.0" layoutY="349.0" mnemonicParsing="false" onAction="#SubmitChange" prefHeight="42.0" prefWidth="102.0" text="Submit Change" />
+                                             </children>
+                                          </AnchorPane>
+                                       </content>
+                                    </Tab>
+                                </tabs>
+                              </TabPane>
+                           </children></AnchorPane>
+                     </content>
+                  </Tab>
+               </tabs>
+            </TabPane>
+            <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackToStartView" prefHeight="42.0" prefWidth="75.0" text="Log Out" textAlignment="CENTER">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
