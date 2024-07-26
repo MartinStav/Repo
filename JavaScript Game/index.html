@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BALLRUN</title>
+    <link rel="stylesheet" href="./source/css/style.css">
+
+    <script defer src="./source/Model/priserka.js"></script>
+    <script defer src="./source/Model/scoreBall.js"></script>
+    <script defer src="./source/Model/enemyBall.js"></script>
+    <script defer src="./source/Model/playerBall.js"></script>
+    <script defer src="./source/Controller/variable.js"></script>
+    <script defer src="./source/Controller/controller.js"></script>
+    <script defer src="./source/View/draw.js"></script>
+</head>
+
+<body>
+    <canvas id="canvas" width="600" height="600"></canvas>
+    <div id="mainMenu">
+        <h1>BALLRUN</h1>
+        <div>
+            <input type="text" id="name" name="name" placeholder="Meno">
+            <div class="btn" id="playButton">PLAY</div>
+            <div class="btn" id="leaderboardButton">LEADERBOARD</div>
+            <div class="btn" id="settingsButton">SETTINGS</div>
+            <div class="btn" id="howtoButton">HOW TO PLAY</div>
+        </div>
+    </div>
+    <div id="playMenu">
+        <div class="header-container">
+            <div class="btn menuBack">&lt;</div>
+            <h2>PLAY</h2>
+        </div>
+        <div class="btn levelPick">EASY</div>
+        <div class="btn levelPick">MEDIUM</div>
+        <div class="btn levelPick">ENDLESS HARD</div>
+    </div>
+    <div id="pauseMenu">
+        <div class="header-container">
+            <div class="btn" id="pauseBack">&lt;</div>
+            <h2>Pause</h2>
+        </div>
+        <div class="btn soundButton">SOUND MUTE</div>
+        <div class="btn musicButton">MUSIC MUTE</div>
+        <div class="btn" id="endGame">END GAME?</div>
+    </div>
+    <div id="settingsMenu">
+        <div class="header-container">
+            <div class="btn menuBack">&lt;</div>
+            <h2>SETTINGS</h2>
+        </div>
+        <div class="btn soundButton">SOUND MUTE</div>
+        <div class="btn musicButton">MUSIC MUTE</div>
+    </div>
+    <div id="howtoMenu">
+        <div class="header-container">
+            <div class="btn menuBack">&lt;</div>
+            <h2>HOW TO PLAY</h2>
+        </div>
+        <div class="container">
+            <img height="130px" src="./assets/image/ovladanie.png" alt="ovladanie">
+            <div>
+                <h3>OVLÁDANIE</h3>
+                <p>Hráč svoju guličku ovláda pohybom myšky. Pomocou dobrého manévrovania po plátne vyhraj hru.</p>
+            </div>
+        </div>
+        <div class="container">
+            <img height="130px" src="./assets/image/nebezpecenstvo.png" alt="nebezpecenstvo">
+            <div>
+                <h3>NEBEZPEČENSTVO</h3>
+                <p>Hráč sa so svojou guličkou musí vyhýbať nebezpečenstvu ako sú príšerky a nepriateľské guličky.</p>
+            </div>
+        </div>
+        <div class="container">
+            <img height="130px" src="./assets/image/skore.png" alt="skore">
+            <div>
+                <h3>SKÓRE</h3>
+                <p>Hráč so svojou guličkou zbiera score guličky, ktoré sa mu pomôžu dostať na prvé miesto v rebríčku.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div id="gameOver">
+        <h2>YOU LOST</h2>
+        <div class="btn restartButton">RESTART</div>
+        <div class="btn menuButton">MENU</div>
+    </div>
+    <div style="background: #FBFBF6;" id="winScreen">
+        <h2>YOU WON</h2>
+        <section>
+            <img width="80px" src="./assets/image/winGif.gif" alt="win gif">
+            <img width="100px" src="./assets/image/winGif.gif" alt="win gif">
+            <img width="80px" src="./assets/image/winGif.gif" alt="win gif">
+        </section>
+        <section>
+            Time: <span class="time"></span>
+        </section>
+        <div class="btn restartButton">RESTART</div>
+        <div class="btn menuButton">MENU</div>
+    </div>
+
+    <div id="leaderboardMenu">
+        <div class="header-container">
+            <div class="btn menuBack">&lt;</div>
+            <h2>LEADERBOARD</h2>
+        </div>
+        <div id="leaderboardTable"></div>
+    </div>
+
+    <iframe name="hiddenFrame" style="display: none;"></iframe>
+
+</body>
+
+</html>
