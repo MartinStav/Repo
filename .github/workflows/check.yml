@@ -1,0 +1,43 @@
+name: Project checks
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  algorithms:
+    runs-on: ubuntu-latest
+    env:
+      MPLBACKEND: Agg
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r genetic-route-search/requirements.txt
+      - run: cmake -S . -B build
+      - run: cmake --build build --parallel 2
+      - run: python -m unittest discover -s tests -v
+
+  voting-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+      - working-directory: voting-simulator
+        run: sh mvnw --batch-mode package
+
+  minidrive:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: cmake -S minidrive -B minidrive/build
+      - run: cmake --build minidrive/build --parallel 2
+      - run: minidrive/build/tests/integration_smoke
+      - run: python3 tests/check_minidrive.py
