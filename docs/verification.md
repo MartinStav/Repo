@@ -20,6 +20,10 @@ Kontrola 14. 10. 2026.
 
 ## Automatické kontroly na GitHube
 
+[Beh 38541773522](https://github.com/MartinStav/Repo/actions/runs/38541773522)
+úspešne dokončil všetky tri kontroly: algorithms, voting-build a minidrive.
+Overený commit implementácie: `11fa8ef0b98bccafaf2c270a32423dcf04d2bdb3`.
+
 Workflow `Project checks` zostavuje C/C++ programy a spúšťa 22 testov,
 pripravuje Java 21 a zostavuje Maven aplikáciu. Samostatne zostavuje MiniDrive,
 spúšťa test knižníc a lokálnu komunikáciu: verejný handshake, LIST a MKDIR.
